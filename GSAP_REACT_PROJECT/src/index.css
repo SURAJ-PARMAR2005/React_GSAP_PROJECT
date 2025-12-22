@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+body{
+  /* background:#111; */
+}
+
+@font-face{
+  font-family:font1;
+  srd:url(../public/fonts/lausanne-300.woff2);
+}
+@font-face{
+  font-family:font2;
+  srd:url(../public/fonts/lausanne-500.woff2);
+}
