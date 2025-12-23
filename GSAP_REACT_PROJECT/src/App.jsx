@@ -1,8 +1,9 @@
-import React from 'react'
 import {Routes,Route} from 'react-router-dom';
 import Home from './pages/Home';
 import Projects from './pages/Projects';
 import Agents from './pages/Agents';
+
+
 const App = () => {
   return (
     <div >
