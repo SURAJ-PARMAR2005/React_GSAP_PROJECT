@@ -32,13 +32,13 @@ const Navbar = () => {
           navGreenRef.current.style.height = "0%";
           setColor(false)
         }}  
-        className="bg-black relative h-11 w-80 hover:cursor-pointer"
+        className="bg-black relative h-11 w-50 hover:cursor-pointer"
       >
         <div
           ref={navGreenRef}
           className="bg-[#D3FD50] absolute top-0 h-0 transition-all w-full"
         >
-         <div className="mx-1 ml-65 h-[3.5vw] w-[5vw]">
+         <div className="mx-1 ml-32 h-[3.5vw] w-[5vw]">
            <svg className="h-full w-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"  style={{ color: color ? "black" : "white" }}  ><path d="M3 4H21V6H3V4ZM9 11H21V13H9V11ZM3 18H21V20H3V18Z"></path></svg>
           </div>
           <div className="relative"></div>
