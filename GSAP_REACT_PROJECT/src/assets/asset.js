@@ -7,7 +7,7 @@ import image5 from "./img5.jpg";
 import image6 from "./img6.jpg";
 import image7 from "./img7.jpg";
 import image8 from "./img8.jpg";
-
+import menu from "./menu-5-line.svg"
 
  const assets = {
     Video,
@@ -18,7 +18,8 @@ import image8 from "./img8.jpg";
     image5,
     image6,
     image7,
-    image8
+    image8,
+    menu
 }
 
 export default assets;
