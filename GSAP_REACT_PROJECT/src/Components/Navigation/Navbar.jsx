@@ -1,12 +1,12 @@
-import React from "react";
-import { useRef ,useState} from "react";
+import React, { useContext } from "react";
+import { useRef, useState } from "react";
+import { NavBarContext } from "../../context/NavContext";
 // import assets from "../../assets/asset";
 
 const Navbar = () => {
   const navGreenRef = useRef(null);
-    const [color,setColor] = useState(false);
-
-    
+  const [color, setColor] = useState(false);
+  const [navOpen,setNavOpen] =  useContext(NavBarContext)
   return (
     <div className="flex fixed top-0 w-full items-start justify-between z-4 ">
       <div className="p-4 h-[7vw] w-[15vw]">
@@ -23,27 +23,34 @@ const Navbar = () => {
           ></path>
         </svg>
       </div>
-      <div
+      <div onClick={() => {setNavOpen(true)}}
         onMouseEnter={() => {
           navGreenRef.current.style.height = "100%";
           setColor(true);
         }}
         onMouseLeave={() => {
           navGreenRef.current.style.height = "0%";
-          setColor(false)
-        }}  
+          setColor(false);
+        }}
         className="bg-black relative h-11 w-50 hover:cursor-pointer"
       >
         <div
           ref={navGreenRef}
           className="bg-[#D3FD50] absolute top-0 h-0 transition-all w-full"
         >
-         <div className="mx-1 ml-32 h-[3.5vw] w-[5vw]">
-           <svg className="h-full w-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"  style={{ color: color ? "black" : "white" }}  ><path d="M3 4H21V6H3V4ZM9 11H21V13H9V11ZM3 18H21V20H3V18Z"></path></svg>
+          <div className="mx-1 ml-32 h-[3.5vw] w-[5vw]">
+            <svg
+              className="h-full w-full"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              style={{ color: color ? "black" : "white" }}
+            >
+              <path d="M3 4H21V6H3V4ZM9 11H21V13H9V11ZM3 18H21V20H3V18Z"></path>
+            </svg>
           </div>
-          <div className="relative"></div>
+          {/* <div className="relative"></div> */}
         </div>
-         
       </div>
     </div>
   );

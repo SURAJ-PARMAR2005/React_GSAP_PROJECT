@@ -19,7 +19,7 @@ body{
 
 .moveX{
   animation-name: moveAnimation;
-  animation-duration:6s;
+  animation-duration:14s;
   animation-iteration-count:infinite;
   animation-timing-function:linear;
 
