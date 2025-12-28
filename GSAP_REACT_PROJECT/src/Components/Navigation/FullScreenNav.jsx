@@ -2,56 +2,78 @@ import React, { useContext, useRef } from "react";
 import assets from "../../assets/asset";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import {NavBarContext} from "../../context/NavContext";
+import { NavBarContext } from "../../context/NavContext";
 const FullScreenNav = () => {
-
-    // const stairParentRef = useRef(null);
-    const fullNavLinksRef = useRef(null);
-    const fullScreenRef = useRef(null);
-   const [navOpen,setNavOpen] = useContext(NavBarContext);
-
-    function gsapAnimation(){
-     const tl = gsap.timeline();
-    tl.from(".stairing", {
-      height: 0,
-      stagger: {
-        amount: -0.25,
-      },
-    });
-    tl.from(".link",{
-        opacity:0,
-        rotateX:90,
-        stagger: {
-        amount: 0.25,
-      },
-    })
-
-    tl.from('.navLink',{
-      opacity:1
-    })
-   }
+  // const stairParentRef = useRef(null);
+  const fullNavLinksRef = useRef(null);
+  const fullScreenRef = useRef(null);
+  const [navOpen, setNavOpen] = useContext(NavBarContext);
 
 
-  useGSAP(() => {
-    if(navOpen) {
-      gsap.to("#fullScreenNav",{
-        display:'block'
-      })
-      gsapAnimation();
-
+    function gsapAnimation() {
+        const tl = gsap.timeline()
+        tl.to('.fullscreennav', {
+            display: 'block'
+        })
+        tl.to('.stairing', {
+            delay: 0.2,
+            height: '100%',
+            stagger: {
+                amount: -0.3
+            }
+        })
+        tl.to('.link', {
+            opacity: 1,
+            rotateX: 0,
+            stagger: {
+                amount: 0.3
+            }
+        })
+        tl.to('.navlink', {
+            opacity: 0
+        })
     }
-    else {
-      gsap.to("#fullScreenNav",{
-        display:'none'
-      })
-      gsapAnimation();
+    function gsapAnimationReverse() {
+        const tl = gsap.timeline()
+        tl.to('.link', {
+            opacity: 0,
+            rotateX: 90,
+            stagger: {
+                amount: 0.1
+            }
+        })
+        tl.to('.stairing', {
+            height: 0,
+            stagger: {
+                amount: 0.1
+            }
+        })
+        tl.to('.navlink', {
+            opacity: 0
+        })
+        tl.to('.fullscreennav', {
+            display: 'none',
+        })
     }
-  },[navOpen]);    
+
+
+    useGSAP(function () {
+        if (navOpen) {
+
+            gsapAnimation()
+        } else {
+
+            gsapAnimationReverse()
+
+        }
+    }, [navOpen])
+
 
   return (
-    <div ref={fullScreenRef}
+    <div
+      ref={fullScreenRef}
       id="fullScreenNav"
-      className="hidden text-white h-screen z-50 w-full absolute "
+      className="fullscreennav hidden text-white h-screen z-50 w-full absolute "
     >
       <div className="h-screen w-full fixed">
         <div className="h-full w-full flex fixed z-10 top-0">
@@ -81,13 +103,18 @@ const FullScreenNav = () => {
               ></path>
             </svg>
           </div>
-          <div onClick={() => {setNavOpen(false)}} className="h-32 w-32 relative cursor-pointer">
+          <div
+            onClick={() => {
+              setNavOpen(false);
+            }}
+            className="h-32 w-32 relative cursor-pointer"
+          >
             <div className="h-45 w-0.5  -rotate-45 origin-top absolute bg-white"></div>
             <div className="h-45 w-0.5  right-0 rotate-45 origin-top absolute bg-white"></div>
           </div>
         </div>
         <div className="py-30">
-          <div className="relative border-y origin-top link">
+          <div className=" link relative border-y origin-top">
             <h1 className=" font-semibold text-white text-8xl pb-3.5 text-center  uppercase">
               PROJECTS
             </h1>
