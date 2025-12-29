@@ -29,7 +29,7 @@ const FullScreenNav = () => {
                 amount: 0.3
             }
         })
-        tl.to('.navlink', {
+        tl.to('.navLink', {
             opacity: 0
         })
     }
@@ -48,7 +48,7 @@ const FullScreenNav = () => {
                 amount: 0.1
             }
         })
-        tl.to('.navlink', {
+        tl.to('.navLink', {
             opacity: 0
         })
         tl.to('.fullscreennav', {
