@@ -106,7 +106,7 @@ const FullScreenNav = () => {
           <div
             onClick={() => {
               setNavOpen(false);
-            }}
+            }}  
             className="h-32 w-32 relative cursor-pointer"
           >
             <div className="h-45 w-0.5  -rotate-45 origin-top absolute bg-white"></div>
@@ -136,7 +136,7 @@ const FullScreenNav = () => {
                   src={assets.NavImg3}
                   alt=""
                 />
-              </div>
+              </div>     
               <div className="moveX shrink-0 w-max flex px-0.5 overflow-hidden items-center ">
                 <h2 className=" text-black  whitespace-nowrap font-semibold  text-8xl pb-3.5 text-center  uppercase">
                   TO SEE EVERYTHING
